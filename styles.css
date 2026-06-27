@@ -1036,9 +1036,16 @@ footer {
   .hero-deco {
     height: auto;
     margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .deco-badges { display: none; }
-  .deco-window { width: 100%; max-width: 300px; }
+  .deco-window {
+    width: 100%;
+    max-width: 300px;
+    animation: none;
+  }
 
   .about-grid { grid-template-columns: 1fr; gap: 28px; }
 
