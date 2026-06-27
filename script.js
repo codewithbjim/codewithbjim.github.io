@@ -337,66 +337,62 @@ document.body.appendChild(glow);
 
 // ─── INTERACTIVE GRID LINES ──────────────────────────────────────────────────
 const gridCanvas = document.getElementById('grid-canvas');
-const GRID_SIZE = 28;         // matches CSS dot grid
-const GRID_OFFSET = 14;      // dots are centered in each 28x28 cell
-const GRID_RADIUS = 180;      // how far from cursor lines appear
+const GRID_SIZE = 28;
+const GRID_OFFSET = 14;
+const GRID_RADIUS = 180;
 let mouseX = -9999, mouseY = -9999;
-let gridCtx = null;
 
-if (gridCanvas) {
-  gridCtx = gridCanvas.getContext('2d');
-  function resizeCanvas() {
-    gridCanvas.width = window.innerWidth;
-    gridCanvas.height = window.innerHeight;
-  }
-  resizeCanvas();
-  window.addEventListener('resize', resizeCanvas);
-}
+const gridCtx = gridCanvas ? gridCanvas.getContext('2d') : null;
 
-if (gridCtx) {
-  function drawGrid() {
-    gridCtx.clearRect(0, 0, gridCanvas.width, gridCanvas.height);
+const resizeCanvas = () => {
+  if (!gridCanvas) return;
+  gridCanvas.width = window.innerWidth;
+  gridCanvas.height = window.innerHeight;
+};
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
 
-    const startX = Math.floor((mouseX - GRID_RADIUS - GRID_OFFSET) / GRID_SIZE) * GRID_SIZE + GRID_OFFSET;
-    const endX   = Math.ceil((mouseX + GRID_RADIUS - GRID_OFFSET) / GRID_SIZE) * GRID_SIZE + GRID_OFFSET;
-    const startY = Math.floor((mouseY - GRID_RADIUS - GRID_OFFSET) / GRID_SIZE) * GRID_SIZE + GRID_OFFSET;
-    const endY   = Math.ceil((mouseY + GRID_RADIUS - GRID_OFFSET) / GRID_SIZE) * GRID_SIZE + GRID_OFFSET;
+const drawGrid = () => {
+  if (!gridCtx) return;
+  gridCtx.clearRect(0, 0, gridCanvas.width, gridCanvas.height);
 
-    gridCtx.lineWidth = 0.5;
+  const startX = Math.floor((mouseX - GRID_RADIUS - GRID_OFFSET) / GRID_SIZE) * GRID_SIZE + GRID_OFFSET;
+  const endX   = Math.ceil((mouseX + GRID_RADIUS - GRID_OFFSET) / GRID_SIZE) * GRID_SIZE + GRID_OFFSET;
+  const startY = Math.floor((mouseY - GRID_RADIUS - GRID_OFFSET) / GRID_SIZE) * GRID_SIZE + GRID_OFFSET;
+  const endY   = Math.ceil((mouseY + GRID_RADIUS - GRID_OFFSET) / GRID_SIZE) * GRID_SIZE + GRID_OFFSET;
 
-    for (let x = startX; x <= endX; x += GRID_SIZE) {
-      for (let y = startY; y <= endY; y += GRID_SIZE) {
-        const dist = Math.hypot(x - mouseX, y - mouseY);
-        if (dist > GRID_RADIUS) continue;
+  gridCtx.lineWidth = 0.5;
 
-        // Segment to the right dot
-        const rightDist = Math.hypot(x + GRID_SIZE - mouseX, y - mouseY);
-        if (rightDist <= GRID_RADIUS) {
-          const segAlpha = (1 - Math.max(dist, rightDist) / GRID_RADIUS) * 0.15;
-          gridCtx.strokeStyle = `rgba(79, 142, 247, ${segAlpha})`;
-          gridCtx.beginPath();
-          gridCtx.moveTo(x, y);
-          gridCtx.lineTo(x + GRID_SIZE, y);
-          gridCtx.stroke();
-        }
+  for (let x = startX; x <= endX; x += GRID_SIZE) {
+    for (let y = startY; y <= endY; y += GRID_SIZE) {
+      const dist = Math.hypot(x - mouseX, y - mouseY);
+      if (dist > GRID_RADIUS) continue;
 
-        // Segment to the bottom dot
-        const bottomDist = Math.hypot(x - mouseX, y + GRID_SIZE - mouseY);
-        if (bottomDist <= GRID_RADIUS) {
-          const segAlpha = (1 - Math.max(dist, bottomDist) / GRID_RADIUS) * 0.15;
-          gridCtx.strokeStyle = `rgba(79, 142, 247, ${segAlpha})`;
-          gridCtx.beginPath();
-          gridCtx.moveTo(x, y);
-          gridCtx.lineTo(x, y + GRID_SIZE);
-          gridCtx.stroke();
-        }
+      const rightDist = Math.hypot(x + GRID_SIZE - mouseX, y - mouseY);
+      if (rightDist <= GRID_RADIUS) {
+        const segAlpha = (1 - Math.max(dist, rightDist) / GRID_RADIUS) * 0.15;
+        gridCtx.strokeStyle = `rgba(79, 142, 247, ${segAlpha})`;
+        gridCtx.beginPath();
+        gridCtx.moveTo(x, y);
+        gridCtx.lineTo(x + GRID_SIZE, y);
+        gridCtx.stroke();
+      }
+
+      const bottomDist = Math.hypot(x - mouseX, y + GRID_SIZE - mouseY);
+      if (bottomDist <= GRID_RADIUS) {
+        const segAlpha = (1 - Math.max(dist, bottomDist) / GRID_RADIUS) * 0.15;
+        gridCtx.strokeStyle = `rgba(79, 142, 247, ${segAlpha})`;
+        gridCtx.beginPath();
+        gridCtx.moveTo(x, y);
+        gridCtx.lineTo(x, y + GRID_SIZE);
+        gridCtx.stroke();
       }
     }
-
-    requestAnimationFrame(drawGrid);
   }
+
   requestAnimationFrame(drawGrid);
-}
+};
+requestAnimationFrame(drawGrid);
 
 document.addEventListener('mousemove', e => {
   glow.style.left = e.clientX + 'px';
