@@ -312,13 +312,22 @@ section.visible {
 }
 .deco-skill-cycle {
   display: none;
-  text-align: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
   margin-top: 16px;
-  font-family: var(--mono);
-  font-size: 0.8rem;
-  color: var(--accent);
-  min-height: 1.4em;
+  min-height: 34px;
   transition: opacity 0.4s ease;
+}
+.deco-skill-cycle .mobile-badge {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 6px 12px;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--accent);
+  white-space: nowrap;
 }
 
 .dc-kw  { color: #c678dd; }
@@ -1039,23 +1048,25 @@ footer {
   .nav-toggle { display: flex; }
 
   #hero {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     min-height: auto;
     padding: 120px 24px 80px;
+    gap: 32px;
   }
 
   .hero-deco {
     height: auto;
-    margin-top: 40px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
   }
   .deco-badges { display: none; }
-  .deco-skill-cycle { display: block; }
+  .deco-skill-cycle { display: flex; width: 100%; }
   .deco-window {
-    width: 100%;
-    max-width: 300px;
+    width: 300px;
+    flex-shrink: 0;
     animation: none;
   }
 

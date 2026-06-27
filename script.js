@@ -448,7 +448,7 @@ const observer = new IntersectionObserver((entries) => {
       entry.target.classList.add('visible');
     }
   });
-}, { threshold: 0.15 });
+}, { threshold: 0.05 });
 
 document.querySelectorAll('section').forEach(s => observer.observe(s));
 
@@ -525,6 +525,7 @@ document.getElementById('footer-year').textContent = new Date().getFullYear();
 function initFloatingBadges() {
   const container = document.getElementById('deco-badges');
   if (!container) return;
+  if (window.innerWidth <= 768) return;
 
   const allSkills = SKILLS
     .filter(s => s.category !== 'Certifications')
@@ -627,19 +628,38 @@ function initSkillCycle() {
     .filter(s => s.category !== 'Certifications')
     .flatMap(s => s.items);
 
-  let i = 0;
+  // Group skills into rows of 2-3 based on character length
+  const MAX_ROW_CHARS = 30;
+  const groups = [];
+  let current = [];
+  let charCount = 0;
 
-  const cycle = () => {
+  allSkills.forEach(skill => {
+    if (current.length >= 3 || (current.length >= 2 && charCount + skill.length > MAX_ROW_CHARS)) {
+      groups.push(current);
+      current = [];
+      charCount = 0;
+    }
+    current.push(skill);
+    charCount += skill.length;
+  });
+  if (current.length) groups.push(current);
+
+  let groupIdx = 0;
+
+  const renderGroup = () => {
     el.style.opacity = '0';
     setTimeout(() => {
-      el.textContent = allSkills[i];
+      el.innerHTML = groups[groupIdx]
+        .map(s => `<span class="mobile-badge">${s}</span>`)
+        .join('');
       el.style.opacity = '1';
-      i = (i + 1) % allSkills.length;
+      groupIdx = (groupIdx + 1) % groups.length;
     }, 400);
   };
 
-  cycle();
-  setInterval(cycle, 2200);
+  renderGroup();
+  setInterval(renderGroup, 2800);
 }
 
 // ─── INIT ─────────────────────────────────────────────────────────────────────
