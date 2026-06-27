@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bryan Jim Paano | Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div id="hero-bg" aria-hidden="true"></div>
+  <canvas id="grid-canvas" aria-hidden="true"></canvas>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">
+        <span class="nl-bracket">&lt;</span>bjim<span class="nl-bracket"> /&gt;</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-content">
+      <p class="hero-greeting">Hi there, I'm</p>
+      <h1 class="hero-name">Bryan Jim Paano</h1>
+      <p class="hero-title typed-text"></p>
+      <p class="hero-subtitle">
+        I've shipped products used by real people: healthcare platforms, airline systems,
+        government tools, and interactive experiences for global brands.
+        Most of it I can't name. All of it I'm proud of.
+      </p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-primary">View My Work</a>
+        <a href="#contact" class="btn btn-outline">Get in Touch</a>
+      </div>
+    </div>
+    <div class="hero-deco" aria-hidden="true">
+      <div class="deco-badges" id="deco-badges"></div>
+      <div class="deco-window">
+        <div class="deco-window-bar"><span></span><span></span><span></span></div>
+        <pre class="deco-code"><span class="dc-kw">const</span> engineer = {
+  name: <span class="dc-str">'Bryan/Jim'</span>,
+  stack: [<span class="dc-str">'Next.js'</span>, <span class="dc-str">'NestJS'</span>],
+  cloud: <span class="dc-str">'GCP'</span>,
+  yoe: <span class="dc-val">7</span>,
+  ai: <span class="dc-val">true</span>,
+  remote: <span class="dc-val">true</span>,
+};</pre>
+      </div>
+    </div>
+    <div class="hero-scroll-hint" aria-hidden="true">
+      <div class="scroll-arrow"></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>
+            I'm a Full Stack Software Engineer with 7+ years of experience building scalable
+            web applications and APIs across healthcare, aviation, finance, FMCG, and the arts.
+            Comfortable leading greenfield builds, maintaining legacy systems, and collaborating
+            within large multi-vendor teams.
+          </p>
+          <p>
+            Google Professional Cloud Architect certified. Proficient across the full stack,
+            from Vue and Next.js on the frontend to NestJS and Spring Boot on the backend,
+            running on GCP and AWS.
+          </p>
+          <p>
+            I work as an AI-augmented developer. That means I use AI tooling deliberately and critically:
+            guiding output, enforcing standards, and making sure what ships is production-quality code,
+            not generated slop. I also contribute to AI-native initiatives at the company level,
+            including building a custom internal agent that supports day-to-day operations across the organisation.
+          </p>
+          <p>
+            Some of my most impactful work is under NDA, but the depth of experience carries
+            across everything I build.
+          </p>
+        </div>
+        <div class="about-card">
+          <div class="about-card-row">
+            <span class="about-card-label">Role</span>
+            <span>Full Stack Software Engineer</span>
+          </div>
+          <div class="about-card-row">
+            <span class="about-card-label">Location</span>
+            <span>Cagayan de Oro, Philippines</span>
+          </div>
+          <div class="about-card-row">
+            <span class="about-card-label">Stack</span>
+            <span>Vue · Next.js · NestJS · GCP</span>
+          </div>
+          <div class="about-card-row">
+            <span class="about-card-label">Cert</span>
+            <span>Google Professional Cloud Architect</span>
+          </div>
+          <div class="about-availability">
+            <span class="availability-dot"></span>
+            Open to collaborations
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="container">
+      <h2 class="section-title">Experience</h2>
+      <div class="timeline" id="timeline"></div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title">Projects</h2>
+      <p class="section-subtitle">
+        A selection of work I've built and contributed to.
+        Projects tagged <span class="tag-nda-inline">CONFIDENTIAL</span> have client
+        details withheld per NDA. Descriptions reflect the nature and scope of work only.
+      </p>
+
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="public">Named</button>
+        <button class="filter-btn" data-filter="nda">Confidential</button>
+      </div>
+
+      <div class="projects-grid" id="projects-grid"></div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="container">
+      <h2 class="section-title">Skills & Tech</h2>
+      <div class="skills-categories" id="skills-grid"></div>
+      <div class="certs-row">
+        <p class="certs-label">Certifications</p>
+        <div class="certs-list" id="certs-list"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container contact-inner">
+      <h2 class="section-title">Get in Touch</h2>
+      <p class="contact-sub">
+        Open to collaborations or just a good conversation about tech.
+      </p>
+
+      <!--
+        ACTION: Sign up at https://formspree.io, create a form with jzoaj8hmf@mozmail.com,
+        then replace YOUR_FORM_ID below with the ID they give you (e.g. xyzabc12).
+      -->
+      <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="your@email.com" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="What's on your mind?" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary form-submit">Send Message</button>
+        <p class="form-note" id="form-status"></p>
+      </form>
+
+      <div class="contact-links">
+        <a href="https://github.com/codewithbjim" target="_blank" rel="noopener" class="contact-card">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577v-2.165c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.757-1.333-1.757-1.09-.745.083-.729.083-.729 1.205.084 1.84 1.236 1.84 1.236 1.07 1.834 2.807 1.304 3.492.997.108-.776.418-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.468-2.38 1.235-3.22-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.3 1.23a11.5 11.5 0 0 1 3.003-.404c1.02.005 2.047.138 3.006.404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.91 1.235 3.22 0 4.61-2.807 5.625-5.479 5.92.43.372.823 1.102.823 2.222v3.293c0 .322.216.694.825.576C20.565 21.796 24 17.298 24 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+          GitHub
+        </a>
+        <a href="https://linkedin.com/in/bryanjimpaano" target="_blank" rel="noopener" class="contact-card">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; <span id="footer-year"></span> Bryan Jim Paano &mdash; Built with HTML, CSS &amp; JS &mdash; Hosted on GitHub Pages</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
