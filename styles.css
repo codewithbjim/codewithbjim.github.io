@@ -310,6 +310,17 @@ section.visible {
   color: var(--text-2);
   white-space: pre;
 }
+.deco-skill-cycle {
+  display: none;
+  text-align: center;
+  margin-top: 16px;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--accent);
+  min-height: 1.4em;
+  transition: opacity 0.4s ease;
+}
+
 .dc-kw  { color: #c678dd; }
 .dc-str { color: #98c379; }
 .dc-val { color: #e5c07b; }
@@ -1041,6 +1052,7 @@ footer {
     justify-content: center;
   }
   .deco-badges { display: none; }
+  .deco-skill-cycle { display: block; }
   .deco-window {
     width: 100%;
     max-width: 300px;

@@ -618,9 +618,34 @@ function initFloatingBadges() {
   });
 }
 
+// ─── MOBILE SKILL CYCLE ───────────────────────────────────────────────────────
+function initSkillCycle() {
+  const el = document.getElementById('deco-skill-cycle');
+  if (!el) return;
+
+  const allSkills = SKILLS
+    .filter(s => s.category !== 'Certifications')
+    .flatMap(s => s.items);
+
+  let i = 0;
+
+  const cycle = () => {
+    el.style.opacity = '0';
+    setTimeout(() => {
+      el.textContent = allSkills[i];
+      el.style.opacity = '1';
+      i = (i + 1) % allSkills.length;
+    }, 400);
+  };
+
+  cycle();
+  setInterval(cycle, 2200);
+}
+
 // ─── INIT ─────────────────────────────────────────────────────────────────────
 renderProjects();
 renderSkills();
 renderExperience();
 initFloatingBadges();
+initSkillCycle();
 typeLoop();
