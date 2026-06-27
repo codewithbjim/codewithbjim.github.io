@@ -1009,7 +1009,7 @@ footer {
 
 /* ─── RESPONSIVE ─────────────────────────────────────────────────────────── */
 @media (max-width: 768px) {
-  section { padding: 72px 0; }
+  section { padding: 48px 0; }
 
   .nav-links {
     display: none;
@@ -1033,7 +1033,12 @@ footer {
     padding: 120px 24px 80px;
   }
 
-  .hero-deco { display: none; }
+  .hero-deco {
+    height: auto;
+    margin-top: 40px;
+  }
+  .deco-badges { display: none; }
+  .deco-window { width: 100%; max-width: 300px; }
 
   .about-grid { grid-template-columns: 1fr; gap: 28px; }
 
