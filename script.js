@@ -10,7 +10,7 @@ const PROJECTS = [
     sector: 'FMCG / Sales Force Automation',
     description:
       'Led the full revamp of Wingman, a mobile sales-force automation app used by field agents for one of Latin America\'s largest Coca-Cola bottlers. Modernised the UI, improved performance, and re-architected key flows.',
-    role: 'Full Stack Engineer',
+    role: 'Frontend Mobile Engineer',
     highlights: ['App Revamp', 'Mobile', 'Performance Optimisation'],
     tech: ['NativeScript', 'REST API'],
     link: null,
@@ -21,7 +21,7 @@ const PROJECTS = [
     sector: 'Aviation / Enterprise',
     description:
       'Embedded in a multi-vendor engineering team to provide development support, debugging, and feature delivery on Singapore Airlines\' digital platforms. Navigated complex cross-team workflows and strict release processes.',
-    role: 'Full Stack Engineer',
+    role: 'Frontend Engineer',
     highlights: ['Multi-Vendor Collaboration', 'Feature Development', 'Debugging & Support'],
     tech: ['Vue.js', 'REST API'],
     link: null,
@@ -43,7 +43,7 @@ const PROJECTS = [
     sector: 'Automotive / Business Website',
     description:
       'Built a professional web presence for a commercial truck dealership. Includes vehicle catalogue, inquiry system, and responsive layout designed for both desktop and mobile users.',
-    role: 'Full Stack Engineer',
+    role: 'Frontend Engineer',
     highlights: ['Business Website', 'Vehicle Catalogue', 'Responsive Design'],
     tech: ['Vue.js'],
     link: null,
