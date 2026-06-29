@@ -143,6 +143,46 @@ const PROJECTS = [
     highlights: ['Built from Scratch', 'Multi-Portal', 'Role-Based Access Control'],
     tech: ['Next.js', 'NestJS', 'GCP'],
   },
+  {
+    type: 'nda',
+    codename: 'Healthcare Payment Microservice',
+    sector: 'Healthcare / Payments',
+    description:
+      'Designed and built a secure, scalable payment microservice integrated with a major e-wallet for a healthcare super-app, handling end-to-end transaction processing.',
+    role: 'Full Stack Engineer',
+    highlights: ['Payments', 'Microservice', 'E-Wallet Integration'],
+    tech: ['NestJS', 'PostgreSQL'],
+  },
+  {
+    type: 'nda',
+    codename: 'Patient Digital ID Platform',
+    sector: 'Healthcare / Patient Data',
+    description:
+      'Built a centralized patient data platform giving healthcare providers a secure, compliant interface to access, analyse, and manage patient medical records.',
+    role: 'Full Stack Engineer',
+    highlights: ['Patient Data', 'Security & Compliance', 'Centralized Records'],
+    tech: ['Next.js', 'NestJS', 'PostgreSQL'],
+  },
+  {
+    type: 'nda',
+    codename: 'Reference Verification Platform',
+    sector: 'Government / Identity & Access',
+    description:
+      'Migrated a reference/background-check platform to an event-driven microservices architecture, with message-based permission and membership services and role-based access control across backend and frontend.',
+    role: 'Full Stack Engineer (Migration)',
+    highlights: ['Event-Driven Microservices', 'RBAC', 'API Authentication'],
+    tech: ['Next.js', 'NestJS', 'MongoDB', 'RabbitMQ'],
+  },
+  {
+    type: 'nda',
+    codename: 'AI Agent System',
+    sector: 'Internal / AI & Automation',
+    description:
+      'Contribute to an internal AI Agent System that supports day-to-day operations across the organisation — feature development, integration support, and ongoing platform improvements.',
+    role: 'Full Stack Engineer',
+    highlights: ['AI Agent Platform', 'Internal Tooling', 'Feature Development'],
+    tech: ['Claude SDK', 'GCP', 'Electron'],
+  },
 ];
 
 // ─── EXPERIENCE DATA ──────────────────────────────────────────────────────────
@@ -154,6 +194,7 @@ const EXPERIENCE = [
     bullets: [
       'Deliver full-stack features across healthcare, government, finance, and BPO sectors',
       'Lead greenfield builds and migrations to modern stacks on GCP',
+      'Contribute to an internal AI Agent System — feature development and support',
       'Collaborate with cross-functional, multi-vendor engineering teams',
     ],
   },
@@ -162,18 +203,19 @@ const EXPERIENCE = [
     company: 'Stash PH Pinas',
     period: 'Jun 2021 – Oct 2023',
     bullets: [
-      'Shipped products for global clients including Singapore Airlines and Coca-Cola FEMSA',
+      'Built and maintained an e-claims platform for hospital-to-PhilHealth claims processing',
       'Improved performance through refactoring and optimisation initiatives',
-      'Maintained high code quality standards through active peer review',
+      'Maintained high code quality through active peer review',
     ],
   },
   {
-    role: 'Junior Software Engineer',
-    company: 'TRR Technologies',
+    role: 'Front-End / Software Developer',
+    company: 'XDevs (TRR Technologies)',
     period: 'Feb 2019 – Mar 2021',
     bullets: [
-      'Contributed to technology solutions across multiple client projects',
-      'Assisted in debugging, testing, and QA across the full project lifecycle',
+      'Shipped frontends for global clients: Singapore Airlines, Singapore Biennale, and Coca-Cola FEMSA\'s Wingman field-sales app',
+      'Built responsive web apps with Vue.js / Nuxt and NativeScript',
+      'Handled debugging, QA, and feature delivery across the project lifecycle',
     ],
   },
 ];
